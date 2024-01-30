@@ -1,0 +1,10 @@
+CREATE TABLE faculty_info (
+	Name	VARCHAR(50) NOT NULL,
+	Rank	VARCHAR(50) NOT NULL,
+	Email	VARCHAR(75) NOT NULL,
+	Phone	CHAR(12)	NOT NULL,
+	Office	VARCHAR(50)	NULL,
+	Research Interests VARCHAR(250) NULL,
+	Remarks VARCHAR(50)	NULL
+
+);
