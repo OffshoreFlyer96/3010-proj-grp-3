@@ -1,0 +1,178 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+/* Logo styles */
+.logo {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Button styles */
+/*.buttons {
+  display: flex;
+}
+
+.buttons a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+  border-radius: 25px;
+  white-space: nowrap;
+}
+
+.buttons a:hover {
+  background-color: rgb(148, 112, 187);
+  color: white;
+}
+*/
+/* Content styles */
+
+
+.menu-toggle {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.buttons a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 5px; 
+    border-radius: 10px;
+    transition: background-color .3s;
+}
+
+.buttons a:hover {
+  background-color: rgb(148, 112, 187);
+  color: white;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .buttons {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: skyblue;
+    }
+
+    .buttons a {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .content {
+        padding: 16px;
+    }
+}
+
+.content {
+  padding: 16px;
+  margin-bottom:40px;
+}
+
+/* Table styles */
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 1px solid #333;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+thead tr th {
+text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+}
+
+.pagination a:hover {
+  background-color: #ddd;
+}
+
+.current {
+  background-color: #333;
+  color: white;
+}
+
+/* Footer styles */
+.footer {
+  background-color: rgb(89, 42, 138);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
