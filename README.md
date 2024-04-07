@@ -1,4 +1,4 @@
-# Faculty and Course Dashboard
+# Faculty and Course Dashboard (Phase 3)
 
 This Flask application provides a dashboard for managing and viewing faculty and course information for educational institutions. It features functionalities such as search, sort, and detailed listings within a responsive design framework.
 
