@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="logo">ECU Dashboard</a>
+        <div class="navigation">
+            <a href="/">Faculty</a>
+            <a href="/courses" class="active">Courses</a>
+            <a href="/fte">FTE</a> 
+        </div>
+    </div>
+    <h1 class="table-title">Course List</h1>
+    <div class="content">
+        <!--  course search or sort by hamid -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Prefix</th>
+                    <th>Number</th>
+                    <th>Title</th>
+                    <th>GU</th>
+                    <th>CH</th>
+                    <th>Frequency</th>
+                    <th>Active</th>
+                    <th>Description</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                <tr>
+                    <td>{{ course[0] }}</td>
+                    <td>{{ course[1] }}</td>
+                    <td>{{ course[2] }}</td>
+                    <td>{{ course[3] }}</td>
+                    <td>{{ course[4] }}</td>
+                    <td>{{ course[5] }}</td>
+                    <td>{{ course[6] }}</td>
+                    <td>{{ course[7] }}</td>
+                    <td>{{ course[8] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="?page=1">First</a>
+            <a href="?page={{ page - 1 }}">Previous</a>
+            {% endif %}
+            <span>Page {{ page }} of {{ pages }}</span>
+            {% if page < pages %}
+            <a href="?page={{ page + 1 }}">Next</a>
+            <a href="?page={{ pages }}">Last</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 ECU Dashboard - All Rights Reserved
+    </div>
+</body>
+</html>
