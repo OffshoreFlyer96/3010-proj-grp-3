@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty List</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="logo">
+        <img class="" style="width: 160px;height: 40px;" alt="ECU Logo" src="static/ECU_logo.svg">
+    </a>
+        <div class="navigation">
+            <a href="/" class="active">Faculty</a>
+            <a href="/courses">Courses</a>
+            <a href="/fte">FTE</a> 
+        </div>
+    </div>
+    <h1 class="table-title">Faculty List</h1>
+    <div class="content">
+        <div class="search-sort-container">
+            <form action="/" method="get">
+                <input type="text" id="search" name="search" placeholder="Search by first or last name..." value="{{ search_query }}">
+                
+                <!-- Sorting options -->
+                <select name="sort">
+                    <option value="Last">Last Name</option>
+                    <option value="First">First Name</option>
+                    <option value="Rank">Rank</option>
+                </select>
+                
+                <select name="order">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+                
+                <button type="submit">Search/Sort</button>
+            </form>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Honorific</th>
+                    <th>First Name</th>
+                    <th>MI</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Office</th>
+                    <th>Research Interests</th>
+                    <th>Rank</th>
+                    <th>Remarks</th>
+                    <th>Currently Employed</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for faculty in faculty_data %}
+                <tr>
+                    <td>{{ faculty[0] }}</td>
+                    <td>{{ faculty[1] }}</td>
+                    <td>{{ faculty[2] }}</td>
+                    <td>{{ faculty[3] }}</td>
+                    <td>{{ faculty[4] }}</td>
+                    <td>{{ faculty[5] }}</td>
+                    <td>{{ faculty[6] }}</td>
+                    <td>{{ faculty[7] }}</td>
+                    <td>{{ faculty[8] }}</td>
+                    <td>{{ faculty[9] }}</td>
+                    <td>{{ faculty[10] }}</td>
+                    <td>{{ faculty[11] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="?page=1&search={{ search_query }}">First</a>
+            <a href="?page={{ page - 1 }}&search={{ search_query }}">Previous</a>
+            {% endif %}
+            <span>Page {{ page }} of {{ pages }}</span>
+            {% if page < pages %}
+            <a href="?page={{ page + 1 }}&search={{ search_query }}">Next</a>
+            <a href="?page={{ pages }}&search={{ search_query }}">Last</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 ECU Dashboard - All Rights Reserved
+    </div>
+</body>
+</html>

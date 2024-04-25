@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FTE List</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="logo">
+        <img class="" style="width: 160px;height: 40px;" alt="ECU Logo" src="static/ECU_logo.svg">
+    </a>
+        <div class="navigation">
+            <a href="/">Faculty</a>
+            <a href="/courses">Courses</a>
+            <a href="/fte" class="active">FTE</a>
+        </div>
+    </div>
+    <h1 class="table-title">FTE List</h1>
+    <div class="content">
+        <form action="/fte" method="get">
+            <input type="text" name="search_name" placeholder="Search by name..." value="{{ request.args.get('search_name', '') }}">
+            <input type="number" name="year" placeholder="Year" value="{{ request.args.get('year', '') }}">
+            <input type="text" name="semester" placeholder="Semester" value="{{ request.args.get('semester', '') }}">
+            
+            <!-- Sorting options -->
+            <select name="sort">
+                <option value="faculty">Faculty</option>
+                <option value="year">Year</option>
+                <option value="semester">Semester</option>
+                <option value="FTE">FTE</option>
+            </select>
+            <select name="order">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+            
+            <button type="submit">Search/Sort</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Faculty</th>
+                    <th>Year</th>
+                    <th>Semester</th>
+                    <th>FTE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in fte %}
+                <tr>
+                    <td>{{ data[1] }}</td>
+                    <td>{{ data[3] }}</td>
+                    <td>{{ data[2] }}</td>
+                    <td>{{ data[4] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4">No data found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="pagination">
+            {% if page > 1 %}
+            <a href="?page=1">First</a>
+            <a href="?page={{ page - 1 }}">Previous</a>
+            {% endif %}
+            <span>Page {{ page }} of {{ pages }}</span>
+            {% if page < pages %}
+            <a href="?page={{ page + 1 }}">Next</a>
+            <a href="?page={{ pages }}">Last</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="footer">
+        &copy; 2024 ECU Dashboard - All Rights Reserved
+    </div>
+</body>
+</html>
